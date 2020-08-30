@@ -1,0 +1,27 @@
+.button {
+    background-color: #FA59B3;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    }
+    input,select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 8px;
+    box-sizing: border-box;
+    font-size: 2vw;
+    }
+    label{
+    font-size: 2vw;
+    }
+    .header {
+    padding: 40px;
+    text-align: center;
+    background: #CB0172;
+    color: white;
+    font-size: 30px;
+    }
