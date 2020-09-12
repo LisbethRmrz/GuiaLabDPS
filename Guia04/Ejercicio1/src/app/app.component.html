@@ -1,0 +1,78 @@
+<router-outlet></router-outlet>
+<!-- margin-right property -->
+<style>
+  .btn-space {
+  margin-right: 20px;
+  }
+  </style>
+  
+  <nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">
+  Primer Crud Angular
+  </a>
+  </nav>
+  <div class="container">
+  <div class="row">
+  <div class="col-md-8 mt-4">
+  <!-- mt-4 espacio en blanco vertical -->
+  <ul class="list-group">
+  
+  <li *ngFor="let alumno of alumnoArray" class="list-group-item list-group-item-
+  action"
+  
+  (click)="openForEdit(alumno)"
+  [class.active]="alumno == selectedAlumno">
+  <span class="badge badge-primary">{{alumno.id}}</span>
+  - {{alumno.name}}
+  - {{alumno.lastname}}
+  - {{alumno.age}}
+  - {{alumno.direccion}}
+  - {{alumno.telefono}}
+  - {{alumno.correo}}
+  </li>
+  </ul>
+  <div class="card">
+  <div class="card-body">
+  <div class="card-title">
+  <h3>{{selectedAlumno.id == 0 ? "Agregar Nuevo Alumno" : "Actualizar Alumno"}}</h3>
+</div>
+<div class="form-group">
+<input type="text" [(ngModel)]="selectedAlumno.name" placeholder="Nombre" class="form-control" required>
+</div>
+<div class="form-group">
+<input type="text" [(ngModel)]="selectedAlumno.lastname" placeholder="Apellido" class="form-control" required>
+</div>
+<div class="form-group">
+<input type="number" [(ngModel)]="selectedAlumno.age" placeholder="Edad" class="form-control" required>
+</div>
+<div class="form-group">
+<input type="text" [(ngModel)]="selectedAlumno.direccion" placeholder="Direccion" class="form-control" required>
+</div>
+<div class="form-group">
+<input type="text" [(ngModel)]="selectedAlumno.telefono" placeholder="Telefono" class="form-control" required>
+</div>
+<div class="form-group">
+<input type=email [(ngModel)]="selectedAlumno.correo" placeholder="Correo" class="form-control" pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" required>
+</div>
+<button (click)="addOrEdit()" class="btn btn-primary btn-space">
+Guardar
+</button>
+<button *ngIf="selectedAlumno.id !== 0" class="btn btn-danger" (click)="delete()">
+Eliminar
+</button>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<!-- md-4 espacio en blanco vertical -->
+<img width="300" alt="Angular Logo"
+src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciI
+HZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuO
+SA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBma
+WxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzM
+HoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxM
+S43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwL
+jl6IiAvPgogIDwvc3ZnPg==">
+</div>
+</div>
+</div>
