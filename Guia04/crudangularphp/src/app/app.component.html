@@ -1,0 +1,51 @@
+<! -- CRUD ANGULAR PHP Y MYSQL -->
+<div class="container">
+<h2>CRUD ANGULAR PHP Y MYSQL</h2>
+<div class="col-md-8 mt-4">
+<div class="card">
+<div class="card-body">
+<div class="container">
+<h2>Administración de artículos</h2>
+
+<table class="table table-hover" *ngIf="hayRegistros(); else sinarticulos">
+
+<thead>
+<tr>
+<th>Codigo</th>
+<th>Descripcion</th>
+<th>Precio</th>
+<th>Borrar</th>
+<th>Seleccionar</th>
+</tr>
+</thead>
+<tbody>
+
+<tr *ngFor="let art of articulos">
+<td>{{art.codigo}}</td>
+<td>{{art.descripcion}}</td>
+<td>{{art.precio}}</td>
+<td><button (click)="baja(art.codigo)" class="btn btn-danger">Borrar</button></td>
+<td><button (click)="seleccionar(art.codigo)"class="btn btn-warning">Seleccionar</button></td>
+
+</tr>
+</tbody>
+</table>
+</div>
+<ng-template #sinarticulos>
+<p>No hay articulos.</p>
+</ng-template>
+<div>
+<div class="form-group">
+<input type="text" [(ngModel)]="art.descripcion" placeholder="descripcion"class="form-control" />
+</div>
+<div class="form-group">
+<input type="number" [(ngModel)]="art.precio" placeholder="precio" class="form-control" />
+</div>
+
+<button (click)="alta()" *ngIf="art.codigo == 0"class="btn btn-primary btn-space">Agregar</button>
+<button (click)="modificacion()" *ngIf="art.codigo !== 0"class="btn btn-warning">Modificar</button>
+</div>
+</div>
+</div>
+</div>
+</div>
